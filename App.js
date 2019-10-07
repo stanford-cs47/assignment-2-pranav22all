@@ -18,7 +18,7 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>This is your workspace. Have fun!</Text>
+        <Text>This is your workspace. Have fun! Extra text here</Text>
         <Text>(Hint: Peep the App folder)</Text>
       </View>
     );
