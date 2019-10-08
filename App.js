@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image, Platform, SafeAreaView } from 'react-native';
 import { Images, Profiles } from './App/Themes';
 
 export default class App extends React.Component {
@@ -17,58 +17,57 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <View style = {style.nav_bar}>
-          <Image style = {styles.small_icon_settings}
-            source = {require('#')} // Where is the image for settings? 
+      <SafeAreaView style={styles.container}>
+        <View style = {styles.nav_bar}>
+          <Image style = {styles.top_icon}
+            source = {{uri: 'https://upload.wikimedia.org/wikipedia/commons/6/6d/Windows_Settings_app_icon.png'}}
           />
 
-          <Image
-            source = {require('App/Images/tinder-logo@2x.png')}
+          <Image style = {{width: 117, height: 44, resizeMode:'contain',}}
+            source = {require('./App/Images/tinder-logo.png')}
           />
 
-          <Image style = {styles.small_icon_chat}
-            source = {require('App/Images/chatting@2x.png')}
+          <Image style = {styles.top_icon}
+            source = {require('./App/Images/chatting.png')}
           />
         </View>
 
-        <View style= {style.profile_pic}>
+        <View style= {styles.profile_pic}>
           <Image 
-            source = {require('App/Images/Profiles/harold@2x.jpg')}
+            source = {require('./App/Images/Profiles/harold.jpg')}
           />
-          
-          <View style={styles.box_large}>
-            <Text>Harold, 65</Text>
+        
+          <View style = {styles.text_box}>          
+            <Text style = {styles.large_text}><Text style = {styles.large_bold_text}>  Harold, </Text>65</Text> 
           </View>
 
-          <View style={styles.box}>
-            <Text>Internet Meme</Text>
+          <View style = {styles.text_box}>
+            <Text style = {styles.small_text}>   Internet Meme</Text>
           </View>
         </View>
 
-        <View style = {style.buttons}>
-          <Image 
-            source = {require('App/Images/rewind@2x.png')}
+        <View style = {styles.button_bar}>
+          <Image style = {styles.small_button_icon}
+            source = {require('./App/Images/rewind.png')}         
           />
 
-          <Image 
-            source = {require('App/Images/nope@2x.png')}
+          <Image style = {styles.large_button_icon}
+            source = {require('./App/Images/nope.png')}
           />
 
-          <Image 
-            source = {require('App/Images/boost@2x.png')}
+          <Image style = {styles.small_button_icon}
+            source = {require('./App/Images/boost.png')}
           />
 
-          <Image 
-            source = {require('App/Images/like@2x.jpg')}
+          <Image style = {styles.large_button_icon}
+            source = {require('./App/Images/like.png')}
           />
 
-          <Image 
-            source = {require('App/Images/super-like@2x.jpg')}
+          <Image style = {styles.small_button_icon}
+            source = {require('./App/Images/super-like.png')}
           />
         </View> 
-
-      </View>
+      </SafeAreaView>
     );
   }
 }
@@ -77,45 +76,67 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'grey',
+    backgroundColor: '#D3D3D3',
 
   },
 
   nav_bar:{
-    width: 100%,
-    height: 56, //Change this to be flexible between iOS and Android
-    resizeMode: 'contain',
+    width: '100%',
+    height: Platform.OS === 'ios' ? 44 : 56,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    //resizeMode: 'contain',
   },
 
-  small_icon_chat:{
-    alignContent: 'right',
-    tintColor: #C5C5C5,
-  }
-
-  small_icon_settings:{
-    alignContent: 'left', 
-    tintColor: #C5C5C5,
-  }
+  top_icon:{
+    width: 50,
+    height: 50,
+    tintColor: '#C5C5C5',
+  },
 
   profile_pic:{
-    flex: 2, 
-    borderColor: #C5C5C5,
+    borderColor: '#C5C5C5',
+    borderWidth: 5,
     borderRadius: 5,
+    backgroundColor: 'white',
   },
 
-  box_large:{
+  text_box:{
+    // backgroundColor: 'white',
+  },
+
+  large_bold_text:{
     fontSize: 24,
+    fontWeight: 'bold',
   },
 
-  box_small:{
-    fontSize: 16,
-  },
-
-  button:{
-    //Add styles here
+  large_text:{
+    fontSize: 24,
   }, 
+
+  small_text:{
+    fontSize: 16,
+    color: '#C5C5C5', 
+  },
+
+  button_bar:{
+    width: '100%',
+    height: 50,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  }, 
+
+  large_button_icon:{
+    width: 40,
+    height: 40,
+  },
+
+  small_button_icon:{
+    width: 20,
+    height: 20,
+  },
 
 });
 
