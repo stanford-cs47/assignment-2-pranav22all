@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, Platform, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, View, Image, Platform, SafeAreaView, TouchableOpacity } from 'react-native';
 import { Images, Profiles } from './App/Themes';
 
 export default class App extends React.Component {
@@ -47,25 +47,40 @@ export default class App extends React.Component {
         </View>
 
         <View style = {styles.button_bar}>
-          <Image style = {styles.small_button_icon}
-            source = {require('./App/Images/rewind.png')}         
-          />
+          <TouchableOpacity>
+            <Image
+              style={styles.small_button_icon}
+              source={require('./App/Images/rewind.png')}
+            />
+          </TouchableOpacity>
 
-          <Image style = {styles.large_button_icon}
-            source = {require('./App/Images/nope.png')}
-          />
+          <TouchableOpacity>
+            <Image
+              style={styles.large_button_icon}
+              source={require('./App/Images/nope.png')}
+            />
+          </TouchableOpacity>
 
-          <Image style = {styles.small_button_icon}
-            source = {require('./App/Images/boost.png')}
-          />
+          <TouchableOpacity>
+            <Image
+              style={styles.small_button_icon}
+              source={require('./App/Images/boost.png')}
+            />
+          </TouchableOpacity>
 
-          <Image style = {styles.large_button_icon}
-            source = {require('./App/Images/like.png')}
-          />
+          <TouchableOpacity>
+            <Image
+              style={styles.large_button_icon}
+              source={require('./App/Images/like.png')}
+            />
+          </TouchableOpacity>
 
-          <Image style = {styles.small_button_icon}
-            source = {require('./App/Images/super-like.png')}
-          />
+          <TouchableOpacity>
+            <Image
+              style={styles.small_button_icon}
+              source={require('./App/Images/super-like.png')}
+            />
+          </TouchableOpacity>
         </View> 
       </SafeAreaView>
     );
@@ -134,8 +149,15 @@ const styles = StyleSheet.create({
   },
 
   small_button_icon:{
-    width: 20,
-    height: 20,
+    width: 30,
+    height: 30,
+    
+    /*
+    borderRadius: 10, 
+    borderColor: 'white', 
+    borderWidth: 5,
+    overflow: 'hidden',
+    */
   },
 
 });
