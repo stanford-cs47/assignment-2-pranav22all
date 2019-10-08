@@ -146,11 +146,16 @@ const styles = StyleSheet.create({
   large_button_icon:{
     width: 40,
     height: 40,
+    resizeMode:'contain',
+    backgroundColor: 'white', 
   },
 
   small_button_icon:{
     width: 30,
     height: 30,
+    resizeMode:'contain',
+    backgroundColor: 'white',
+    borderRadius: 15,
     
     /*
     borderRadius: 10, 
