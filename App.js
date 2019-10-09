@@ -23,7 +23,7 @@ export default class App extends React.Component {
             source = {{uri: 'https://upload.wikimedia.org/wikipedia/commons/6/6d/Windows_Settings_app_icon.png'}}
           />
 
-          <Image style = {{width: 117, height: 44, resizeMode:'contain',}}
+          <Image style = {{width: 106, height: 44, resizeMode:'contain',}}
             source = {require('./App/Images/tinder-logo.png')}
           />
 
@@ -38,44 +38,44 @@ export default class App extends React.Component {
           />
         
           <View style = {styles.text_box}>          
-            <Text style = {styles.large_text}><Text style = {styles.large_bold_text}>  Harold, </Text>65</Text> 
+            <Text style = {styles.large_text}><Text style = {styles.large_bold_text}>Harold, </Text>65</Text> 
           </View>
 
           <View style = {styles.text_box}>
-            <Text style = {styles.small_text}>   Internet Meme</Text>
+            <Text style = {styles.small_text}>Internet Meme</Text>
           </View>
         </View>
 
         <View style = {styles.button_bar}>
-          <TouchableOpacity>
+          <TouchableOpacity style = {styles.small_button}>
             <Image
               style={styles.small_button_icon}
               source={require('./App/Images/rewind.png')}
             />
           </TouchableOpacity>
 
-          <TouchableOpacity>
+          <TouchableOpacity style = {styles.large_button}>
             <Image
               style={styles.large_button_icon}
               source={require('./App/Images/nope.png')}
             />
           </TouchableOpacity>
 
-          <TouchableOpacity>
+          <TouchableOpacity style = {styles.small_button}>
             <Image
               style={styles.small_button_icon}
               source={require('./App/Images/boost.png')}
             />
           </TouchableOpacity>
 
-          <TouchableOpacity>
+          <TouchableOpacity style = {styles.large_button}>
             <Image
               style={styles.large_button_icon}
               source={require('./App/Images/like.png')}
             />
           </TouchableOpacity>
 
-          <TouchableOpacity>
+          <TouchableOpacity style = {styles.small_button}>
             <Image
               style={styles.small_button_icon}
               source={require('./App/Images/super-like.png')}
@@ -102,24 +102,22 @@ const styles = StyleSheet.create({
     height: Platform.OS === 'ios' ? 44 : 56,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    //resizeMode: 'contain',
+    borderBottomColor: 'grey', 
+    borderBottomWidth: 1,
   },
 
   top_icon:{
-    width: 50,
-    height: 50,
+    width: 40,
+    height: 40,
     tintColor: '#C5C5C5',
   },
 
   profile_pic:{
-    borderColor: '#C5C5C5',
-    borderWidth: 5,
-    borderRadius: 5,
     backgroundColor: 'white',
-  },
-
-  text_box:{
-    // backgroundColor: 'white',
+    borderColor: '#C5C5C5',
+    borderWidth: 3,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
   },
 
   large_bold_text:{
@@ -129,41 +127,53 @@ const styles = StyleSheet.create({
 
   large_text:{
     fontSize: 24,
+    paddingLeft: 10,
+    
   }, 
 
   small_text:{
     fontSize: 16,
+    paddingLeft: 10,
+    paddingBottom: 5,
     color: '#C5C5C5', 
   },
 
   button_bar:{
     width: '100%',
-    height: 50,
+    height: 70,
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
   }, 
 
-  large_button_icon:{
+  large_button:{
     width: 40,
-    height: 40,
-    resizeMode:'contain',
+    height: 40, 
+    justifyContent: 'center',
+    alignItems: 'center',
     backgroundColor: 'white', 
+    borderRadius: 20,
+    padding: 10, 
   },
 
-  small_button_icon:{
+  large_button_icon:{
     width: 30,
     height: 30,
     resizeMode:'contain',
-    backgroundColor: 'white',
-    borderRadius: 15,
-    
-    /*
-    borderRadius: 10, 
-    borderColor: 'white', 
-    borderWidth: 5,
-    overflow: 'hidden',
-    */
   },
 
+  small_button:{
+    width: 40, 
+    height: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'white', 
+    borderRadius: 20,
+  },
+
+  small_button_icon:{
+    width: 20,
+    height: 20,
+    resizeMode:'contain',
+  },
 });
 
